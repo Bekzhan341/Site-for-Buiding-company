@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АТЛАНТ СТРОЙ — Строительная компания полного цикла</title>
+<meta name="description" content="АТЛАНТ СТРОЙ — строительство жилых и коммерческих объектов, проектирование, ремонт и реконструкция под ключ. 15 лет опыта, гарантия на все виды работ.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23151b26'/%3E%3Cpath d='M16 46V24l8-6 8 6v22M40 46V30l8-6v22' stroke='%23f5a524' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="#hero" class="logo">
+      <span class="logo__mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="38" height="38"><rect width="40" height="40" rx="10" fill="#151b26"/><path d="M10 29V15l5-4 5 4v14M25 29V19l5-4v14" stroke="#f5a524" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="logo__text">АТЛАНТ<em>СТРОЙ</em></span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Основная навигация">
+      <ul class="nav__list">
+        <li><a href="#about">Компания</a></li>
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#process">Как мы работаем</a></li>
+        <li><a href="#projects">Проекты</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#faq">Вопросы</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+      <a href="tel:+77001234567" class="nav__cta-phone">+7 (700) 123-45-67</a>
+      <a href="#contact" class="btn btn--accent nav__cta">Оставить заявку</a>
+    </nav>
+
+    <div class="header__actions">
+      <a href="tel:+77001234567" class="header__phone">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1.1.5 1.1 1.1V21c0 .6-.5 1.1-1.1 1.1C11.1 22.1 1.9 12.9 1.9 1.5 1.9.9 2.4.4 3 .4h4.4c.6 0 1.1.5 1.1 1.1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z" fill="currentColor"/></svg>
+        <span>+7 (700) 123-45-67</span>
+      </a>
+      <a href="#contact" class="btn btn--accent btn--sm">Оставить заявку</a>
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" id="hero">
+    <div class="hero__grid" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <div class="hero__content reveal">
+        <span class="eyebrow">Строительная компания полного цикла</span>
+        <h1>Строим надёжно.<br>Строим <span class="accent-text">на десятилетия.</span></h1>
+        <p class="hero__lead">Проектируем, строим и сдаём жилые и коммерческие объекты под ключ — от первого эскиза до подписания акта приёма-передачи. Прозрачная смета, фиксированные сроки, гарантия до 5 лет.</p>
+        <div class="hero__cta">
+          <a href="#contact" class="btn btn--accent btn--lg">Получить расчёт стоимости</a>
+          <a href="#projects" class="btn btn--ghost btn--lg">Смотреть проекты</a>
+        </div>
+        <div class="hero__stats">
+          <div class="hero__stat">
+            <span class="counter" data-target="15">0</span><span class="hero__stat-suffix">+</span>
+            <p>лет на рынке</p>
+          </div>
+          <div class="hero__stat">
+            <span class="counter" data-target="240">0</span><span class="hero__stat-suffix">+</span>
+            <p>сданных объектов</p>
+          </div>
+          <div class="hero__stat">
+            <span class="counter" data-target="98">0</span><span class="hero__stat-suffix">%</span>
+            <p>клиентов рекомендуют нас</p>
+          </div>
+          <div class="hero__stat">
+            <span class="counter" data-target="5">0</span><span class="hero__stat-suffix">&nbsp;лет</span>
+            <p>гарантии на работы</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__art reveal" aria-hidden="true">
+        <svg viewBox="0 0 480 420" class="skyline">
+          <rect x="30" y="230" width="70" height="150" rx="4" class="bld bld--1"/>
+          <rect x="115" y="170" width="80" height="210" rx="4" class="bld bld--2"/>
+          <rect x="210" y="120" width="90" height="260" rx="4" class="bld bld--3"/>
+          <rect x="315" y="200" width="70" height="180" rx="4" class="bld bld--1"/>
+          <rect x="230" y="140" width="50" height="16" class="bld-detail"/>
+          <line x1="255" y1="40" x2="255" y2="140" class="crane-line"/>
+          <line x1="255" y1="50" x2="360" y2="50" class="crane-line"/>
+          <line x1="255" y1="50" x2="200" y2="70" class="crane-line"/>
+          <line x1="345" y1="50" x2="345" y2="90" class="crane-line"/>
+          <circle cx="255" cy="40" r="5" class="crane-dot"/>
+          <g class="bld-windows">
+            <rect x="42" y="245" width="12" height="12"/><rect x="64" y="245" width="12" height="12"/>
+            <rect x="42" y="270" width="12" height="12"/><rect x="64" y="270" width="12" height="12"/>
+            <rect x="42" y="295" width="12" height="12"/><rect x="64" y="295" width="12" height="12"/>
+            <rect x="130" y="190" width="14" height="14"/><rect x="156" y="190" width="14" height="14"/>
+            <rect x="130" y="220" width="14" height="14"/><rect x="156" y="220" width="14" height="14"/>
+            <rect x="130" y="250" width="14" height="14"/><rect x="156" y="250" width="14" height="14"/>
+            <rect x="228" y="160" width="15" height="16"/><rect x="256" y="160" width="15" height="16"/>
+            <rect x="228" y="195" width="15" height="16"/><rect x="256" y="195" width="15" height="16"/>
+            <rect x="228" y="230" width="15" height="16"/><rect x="256" y="230" width="15" height="16"/>
+            <rect x="330" y="220" width="12" height="12"/><rect x="352" y="220" width="12" height="12"/>
+            <rect x="330" y="245" width="12" height="12"/><rect x="352" y="245" width="12" height="12"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <a href="#about" class="scroll-cue" aria-label="Прокрутить вниз">
+      <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container about__inner">
+      <div class="about__media reveal" aria-hidden="true">
+        <div class="about__media-block about__media-block--1"></div>
+        <div class="about__media-block about__media-block--2"></div>
+        <div class="about__badge">
+          <strong>15+</strong>
+          <span>лет строим доверие</span>
+        </div>
+      </div>
+
+      <div class="about__content reveal">
+        <span class="eyebrow">О компании</span>
+        <h2>Команда, для которой важен каждый метр вашего объекта</h2>
+        <p>АТЛАНТ СТРОЙ работает на рынке с 2010 года и специализируется на строительстве жилых домов, коммерческой недвижимости, а также на ремонте и реконструкции объектов любой сложности. Мы берём на себя весь цикл: от проектирования и согласований до сдачи «под ключ».</p>
+        <p>В штате — собственные бригады, инженеры и технадзор, поэтому мы не зависим от подрядчиков‑посредников и отвечаем за качество на каждом этапе лично.</p>
+
+        <ul class="about__points">
+          <li>
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#f5a524" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><strong>Собственные бригады и техника</strong><span>без субподряда и наценок посредников</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#f5a524" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><strong>Фиксированная смета в договоре</strong><span>стоимость не меняется в процессе работ</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#f5a524" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><strong>Независимый технадзор</strong><span>контроль качества на каждом этапе стройки</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#f5a524" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><strong>Гарантия до 5 лет</strong><span>официальный договор и полное сопровождение</span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Услуги</span>
+        <h2>Полный цикл строительных работ</h2>
+        <p>Берём проект на любой стадии — от идеи и эскиза до финальной отделки и сдачи объекта в эксплуатацию.</p>
+      </div>
+
+      <div class="services__grid">
+        <article class="service-card reveal">
+          <div class="service-card__icon"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M4 21V10l8-6 8 6v11M4 21h16M9 21v-7h6v7" stroke="#151b26" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Жилищное строительство</h3>
+          <p>Частные дома, коттеджи и таунхаусы под ключ — от фундамента до отделки и благоустройства участка.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card__icon"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M3 21h18M6 21V7l6-4 6 4v14M10 21v-5h4v5M9 10h.01M9 14h.01M15 10h.01M15 14h.01" stroke="#151b26" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Коммерческое строительство</h3>
+          <p>Офисные центры, торговые павильоны и складские комплексы с учётом технических регламентов.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card__icon"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M4 20h16M6 20V10l4-2v12M14 20V6l4 2v12M9 13h1M9 16h1M17 12h1M17 16h1" stroke="#151b26" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Проектирование и дизайн</h3>
+          <p>Архитектурная концепция, рабочая документация и 3D‑визуализация будущего объекта.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card__icon"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M14.7 6.3l3 3-8.4 8.4-4 1 1-4 8.4-8.4z" stroke="#151b26" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 21h18" stroke="#151b26" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <h3>Ремонт и реконструкция</h3>
+          <p>Капитальный и косметический ремонт, перепланировка и реконструкция зданий любого назначения.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card__icon"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M3 13l9-9 9 9M5 11v10h14V11" stroke="#151b26" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Кровельные работы</h3>
+          <p>Монтаж и ремонт кровли любой сложности с гидро‑ и теплоизоляцией по современным стандартам.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card__icon"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M4 20V10h16v10M4 20h16M8 20v-6h3v6M13 20v-4h3v4" stroke="#151b26" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Фундаментные работы</h3>
+          <p>Геологические изыскания, устройство свайных, ленточных и монолитных фундаментов.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card__icon"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" stroke="#151b26" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Инженерные сети</h3>
+          <p>Электрика, водоснабжение, отопление и вентиляция — проектирование и монтаж «под ключ».</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card__icon"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M9 4h6v3H9V4zM6 7h12v14H6V7z" stroke="#151b26" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#151b26" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Генеральный подряд</h3>
+          <p>Управление проектом, координация подрядчиков и контроль сроков и бюджета стройки.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-head section-head--light reveal">
+        <span class="eyebrow">Как мы работаем</span>
+        <h2>Пять шагов от идеи до сдачи объекта</h2>
+        <p>Прозрачный процесс без скрытых доплат и неожиданных сюрпризов на любом этапе строительства.</p>
+      </div>
+
+      <div class="process__list">
+        <div class="process__item reveal">
+          <span class="process__num">01</span>
+          <h3>Заявка и консультация</h3>
+          <p>Обсуждаем задачу, выезжаем на объект или изучаем участок, отвечаем на все вопросы.</p>
+        </div>
+        <div class="process__item reveal">
+          <span class="process__num">02</span>
+          <h3>Проект и смета</h3>
+          <p>Готовим проектную документацию, 3D‑визуализацию и детальную смету с фиксированной ценой.</p>
+        </div>
+        <div class="process__item reveal">
+          <span class="process__num">03</span>
+          <h3>Договор</h3>
+          <p>Заключаем официальный договор с графиком работ, этапами оплаты и гарантийными обязательствами.</p>
+        </div>
+        <div class="process__item reveal">
+          <span class="process__num">04</span>
+          <h3>Строительство</h3>
+          <p>Ведём работы по графику под контролем технадзора, регулярно отчитываемся о ходе стройки.</p>
+        </div>
+        <div class="process__item reveal">
+          <span class="process__num">05</span>
+          <h3>Сдача и гарантия</h3>
+          <p>Передаём объект по акту, предоставляем исполнительную документацию и гарантию до 5 лет.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Портфолио</span>
+        <h2>Реализованные проекты</h2>
+        <p>Часть объектов, которые мы спроектировали и построили за последние годы.</p>
+      </div>
+
+      <div class="projects__filter reveal" role="tablist" aria-label="Фильтр проектов">
+        <button class="filter-btn is-active" data-filter="all">Все проекты</button>
+        <button class="filter-btn" data-filter="residential">Жилые дома</button>
+        <button class="filter-btn" data-filter="commercial">Коммерческие</button>
+        <button class="filter-btn" data-filter="renovation">Ремонт и отделка</button>
+      </div>
+
+      <div class="projects__grid" id="projectsGrid">
+        <article class="project-card reveal" data-category="residential">
+          <div class="project-card__media project-card__media--1">
+            <span class="project-card__tag">Жилые дома</span>
+          </div>
+          <div class="project-card__body">
+            <h3>Загородный дом, 240 м²</h3>
+            <p>Кирпичный дом в 2 этажа с террасой и гаражом. Срок строительства — 7 месяцев.</p>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-category="commercial">
+          <div class="project-card__media project-card__media--2">
+            <span class="project-card__tag">Коммерческие</span>
+          </div>
+          <div class="project-card__body">
+            <h3>Бизнес‑центр класса А</h3>
+            <p>5‑этажное офисное здание 3 800 м² с подземным паркингом.</p>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-category="renovation">
+          <div class="project-card__media project-card__media--3">
+            <span class="project-card__tag">Ремонт</span>
+          </div>
+          <div class="project-card__body">
+            <h3>Реконструкция квартиры</h3>
+            <p>Полная перепланировка и капитальный ремонт квартиры 130 м².</p>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-category="residential">
+          <div class="project-card__media project-card__media--4">
+            <span class="project-card__tag">Жилые дома</span>
+          </div>
+          <div class="project-card__body">
+            <h3>Комплекс таунхаусов</h3>
+            <p>8 блок‑секций по 160 м² с общим благоустройством территории.</p>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-category="commercial">
+          <div class="project-card__media project-card__media--5">
+            <span class="project-card__tag">Коммерческие</span>
+          </div>
+          <div class="project-card__body">
+            <h3>Складской комплекс</h3>
+            <p>Логистический склад 6 000 м² с погрузочными зонами и офисным блоком.</p>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-category="renovation">
+          <div class="project-card__media project-card__media--6">
+            <span class="project-card__tag">Ремонт</span>
+          </div>
+          <div class="project-card__body">
+            <h3>Ремонт офисных помещений</h3>
+            <p>Отделка open‑space офиса 450 м² под ключ за 6 недель.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Отзывы</span>
+        <h2>Что говорят наши клиенты</h2>
+        <p>Нам доверяют строительство своих домов и объектов — вот несколько отзывов.</p>
+      </div>
+    </div>
+
+    <div class="reviews__viewport">
+      <div class="reviews__track" id="reviewsTrack">
+        <article class="review-card reveal">
+          <div class="review-card__stars" aria-label="5 из 5">★★★★★</div>
+          <p>«Строили дом под ключ — уложились в срок и в смету день в день. Отдельное спасибо за честность: ни одной скрытой доплаты за все 7 месяцев».</p>
+          <div class="review-card__author">
+            <span class="review-card__avatar">АК</span>
+            <div><strong>Александр Ким</strong><span>Загородный дом, 240 м²</span></div>
+          </div>
+        </article>
+
+        <article class="review-card reveal">
+          <div class="review-card__stars" aria-label="5 из 5">★★★★★</div>
+          <p>«Реконструировали офис для нашей компании. Понравился технадзор — все этапы фиксировали фото и присылали отчёты. Результат превзошёл ожидания».</p>
+          <div class="review-card__author">
+            <span class="review-card__avatar">ДН</span>
+            <div><strong>Дана Нурланова</strong><span>Ремонт офиса, 450 м²</span></div>
+          </div>
+        </article>
+
+        <article class="review-card reveal">
+          <div class="review-card__stars" aria-label="5 из 5">★★★★★</div>
+          <p>«Заказывали проект и строительство складского комплекса. Профессиональная команда, быстро согласовали все технические вопросы с нашими требованиями».</p>
+          <div class="review-card__author">
+            <span class="review-card__avatar">МТ</span>
+            <div><strong>Марат Турсунов</strong><span>Складской комплекс</span></div>
+          </div>
+        </article>
+
+        <article class="review-card reveal">
+          <div class="review-card__stars" aria-label="4 из 5">★★★★☆</div>
+          <p>«Хорошее качество кладки и отделки, ремонт квартиры сделали аккуратно. Был небольшой сдвиг по срокам из-за поставки материалов, но нас предупредили заранее».</p>
+          <div class="review-card__author">
+            <span class="review-card__avatar">ЕС</span>
+            <div><strong>Елена Соколова</strong><span>Реконструкция квартиры</span></div>
+          </div>
+        </article>
+
+        <article class="review-card reveal">
+          <div class="review-card__stars" aria-label="5 из 5">★★★★★</div>
+          <p>«Строили таунхаусы под продажу — важна была скорость и качество одновременно. Команда справилась на отлично, будем работать и дальше».</p>
+          <div class="review-card__author">
+            <span class="review-card__avatar">РБ</span>
+            <div><strong>Руслан Байтасов</strong><span>Комплекс таунхаусов</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="reviews__controls">
+      <button class="slider-btn" id="reviewPrev" aria-label="Предыдущий отзыв">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="slider-btn" id="reviewNext" aria-label="Следующий отзыв">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="container faq__inner">
+      <div class="section-head section-head--left reveal">
+        <span class="eyebrow">Вопросы и ответы</span>
+        <h2>Часто задаваемые вопросы</h2>
+        <p>Не нашли ответ на свой вопрос? Свяжитесь с нами — проконсультируем бесплатно.</p>
+        <a href="#contact" class="btn btn--dark">Задать вопрос</a>
+      </div>
+
+      <div class="faq__list reveal">
+        <div class="faq-item is-open">
+          <button class="faq-item__q">
+            <span>Сколько стоит строительство дома под ключ?</span>
+            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-item__a">
+            <p>Стоимость зависит от площади, материалов и сложности проекта. После консультации и выезда на участок мы готовим детальную смету с фиксированной итоговой суммой, которая прописывается в договоре.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__q">
+            <span>Какие гарантии вы предоставляете?</span>
+            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-item__a">
+            <p>На все виды строительных и отделочных работ действует гарантия от 2 до 5 лет в зависимости от типа работ. Условия гарантии фиксируются в договоре.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__q">
+            <span>Работаете ли вы за пределами города?</span>
+            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-item__a">
+            <p>Да, мы реализуем проекты по всему региону. Стоимость и сроки выезда бригад на удалённые объекты обсуждаются индивидуально.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__q">
+            <span>Как формируется смета проекта?</span>
+            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-item__a">
+            <p>Смета составляется на основе проекта и выбранных материалов, с постатейной разбивкой по видам работ. Вы видите полную структуру затрат ещё до подписания договора.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__q">
+            <span>Возможна ли рассрочка оплаты?</span>
+            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-item__a">
+            <p>Да, оплата разбивается на этапы согласно графику работ: аванс, промежуточные платежи по факту выполнения этапов и финальный расчёт при сдаче объекта.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__q">
+            <span>Сколько времени занимает строительство дома?</span>
+            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-item__a">
+            <p>В среднем — от 5 до 9 месяцев для частного дома площадью 150–300 м², в зависимости от сложности проекта и сезона. Точный срок фиксируется в графике работ.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container cta__inner reveal">
+      <div>
+        <h2>Готовы обсудить свой проект?</h2>
+        <p>Оставьте заявку — перезвоним в течение 15 минут и рассчитаем предварительную стоимость.</p>
+      </div>
+      <div class="cta__actions">
+        <a href="tel:+77001234567" class="btn btn--ghost-light btn--lg">+7 (700) 123‑45‑67</a>
+        <a href="#contact" class="btn btn--accent btn--lg">Оставить заявку</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container contact__inner">
+      <div class="contact__info reveal">
+        <span class="eyebrow">Контакты</span>
+        <h2>Свяжитесь с нами удобным способом</h2>
+        <p>Ответим на вопросы, выедем на замер и подготовим предварительный расчёт стоимости бесплатно.</p>
+
+        <ul class="contact__list">
+          <li>
+            <span class="contact__icon"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1.1.5 1.1 1.1V21c0 .6-.5 1.1-1.1 1.1C11.1 22.1 1.9 12.9 1.9 1.5 1.9.9 2.4.4 3 .4h4.4c.6 0 1.1.5 1.1 1.1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z" fill="currentColor"/></svg></span>
+            <div><strong>Телефон</strong><a href="tel:+77001234567">+7 (700) 123‑45‑67</a></div>
+          </li>
+          <li>
+            <span class="contact__icon"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6l9 7 9-7M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div><strong>Email</strong><a href="mailto:info@atlant-stroy.example">info@atlant-stroy.example</a></div>
+          </li>
+          <li>
+            <span class="contact__icon"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></span>
+            <div><strong>Офис</strong><span>г. Алматы, ул. Строителей, 24</span></div>
+          </li>
+          <li>
+            <span class="contact__icon"><svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
+            <div><strong>Часы работы</strong><span>Пн–Сб: 09:00–19:00</span></div>
+          </li>
+        </ul>
+
+        <div class="contact__social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M20 12a8 8 0 1 1-14.7-4.4L4 21l4.6-1.2A8 8 0 0 1 20 12z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/></svg></a>
+          <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M21 4L3 11.5l6 2M21 4l-4 16-8-6.5M21 4L9 13.5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round" stroke-linecap="round"/></svg></a>
+        </div>
+      </div>
+
+      <form class="contact__form reveal" id="contactForm" novalidate>
+        <h3>Оставить заявку</h3>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="name">Имя</label>
+            <input type="text" id="name" name="name" placeholder="Как к вам обращаться" required>
+          </div>
+          <div class="form-field">
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="service">Услуга</label>
+          <select id="service" name="service">
+            <option value="">Выберите услугу</option>
+            <option value="residential">Жилищное строительство</option>
+            <option value="commercial">Коммерческое строительство</option>
+            <option value="design">Проектирование и дизайн</option>
+            <option value="renovation">Ремонт и реконструкция</option>
+            <option value="other">Другое</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="message">Сообщение</label>
+          <textarea id="message" name="message" rows="4" placeholder="Кратко опишите задачу"></textarea>
+        </div>
+        <label class="form-check">
+          <input type="checkbox" id="consent" name="consent" required>
+          <span>Согласен(-на) на обработку персональных данных</span>
+        </label>
+        <button type="submit" class="btn btn--accent btn--lg btn--block">Отправить заявку</button>
+        <p class="form-success" id="formSuccess" role="status">Спасибо! Ваша заявка отправлена — мы свяжемся с вами в ближайшее время.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <a href="#hero" class="logo logo--light">
+        <span class="logo__mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="34" height="34"><rect width="40" height="40" rx="10" fill="#f5a524"/><path d="M10 29V15l5-4 5 4v14M25 29V19l5-4v14" stroke="#151b26" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="logo__text">АТЛАНТ<em>СТРОЙ</em></span>
+      </a>
+      <p>Строительная компания полного цикла: проектирование, строительство и ремонт жилых и коммерческих объектов под ключ.</p>
+    </div>
+
+    <div class="footer__col">
+      <h4>Услуги</h4>
+      <ul>
+        <li><a href="#services">Жилищное строительство</a></li>
+        <li><a href="#services">Коммерческое строительство</a></li>
+        <li><a href="#services">Проектирование и дизайн</a></li>
+        <li><a href="#services">Ремонт и реконструкция</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>Компания</h4>
+      <ul>
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#projects">Проекты</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#faq">Вопросы</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>Контакты</h4>
+      <ul>
+        <li><a href="tel:+77001234567">+7 (700) 123‑45‑67</a></li>
+        <li><a href="mailto:info@atlant-stroy.example">info@atlant-stroy.example</a></li>
+        <li>г. Алматы, ул. Строителей, 24</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <span>© <span id="year"></span> АТЛАНТ СТРОЙ. Все права защищены.</span>
+      <div class="footer__legal">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Договор оферты</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Наверх">
+  <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>

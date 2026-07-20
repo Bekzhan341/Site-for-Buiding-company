@@ -4,618 +4,729 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>АТЛАНТ СТРОЙ — Строительная компания полного цикла</title>
-<meta name="description" content="АТЛАНТ СТРОЙ — строительство жилых и коммерческих объектов, проектирование, ремонт и реконструкция под ключ. 15 лет опыта, гарантия на все виды работ.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23151b26'/%3E%3Cpath d='M16 46V24l8-6 8 6v22M40 46V30l8-6v22' stroke='%23f5a524' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<meta name="description" content="АТЛАНТ СТРОЙ — строительство домов и коммерческих объектов под ключ, проектирование, ремонт и реконструкция. 15 лет опыта, гарантия до 5 лет.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e1116'/%3E%3Cpath d='M16 46V24l8-6 8 6v22M40 46V30l8-6v22' stroke='%23ff9d2e' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+/* ================== RESET & TOKENS ================== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0e1116;
+  --surface:#151a22;
+  --surface-2:#1b212c;
+  --surface-3:#222a37;
+  --line:rgba(255,255,255,.08);
+  --line-strong:rgba(255,255,255,.14);
+  --text:#eaedf2;
+  --muted:#98a2b3;
+  --muted-2:#6b7686;
+  --accent:#ff9d2e;
+  --accent-2:#ffb454;
+  --accent-soft:rgba(255,157,46,.14);
+  --radius:16px;
+  --radius-lg:24px;
+  --radius-sm:10px;
+  --shadow:0 30px 60px -25px rgba(0,0,0,.7);
+  --shadow-accent:0 18px 40px -14px rgba(255,157,46,.5);
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --container:1200px;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{line-height:1.12;font-weight:800;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+img,svg{display:block;max-width:100%}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,textarea,select{font:inherit;color:inherit}
+section{scroll-margin-top:80px}
+.container{width:100%;max-width:var(--container);margin:0 auto;padding:0 24px}
+.accent{color:var(--accent)}
+
+/* ================== BUTTONS ================== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:14px 28px;border-radius:100px;font-weight:700;font-size:15px;white-space:nowrap;
+  transition:transform .2s ease,box-shadow .2s ease,background .2s ease,border-color .2s ease,color .2s ease}
+.btn svg{width:18px;height:18px}
+.btn--accent{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#1a1205;box-shadow:var(--shadow-accent)}
+.btn--accent:hover{transform:translateY(-2px);box-shadow:0 22px 46px -12px rgba(255,157,46,.62)}
+.btn--ghost{border:1.5px solid var(--line-strong);color:var(--text)}
+.btn--ghost:hover{background:rgba(255,255,255,.06);transform:translateY(-2px);border-color:rgba(255,255,255,.28)}
+.btn--sm{padding:10px 20px;font-size:14px}
+.btn--lg{padding:16px 34px;font-size:16px}
+.btn--block{width:100%}
+
+/* ================== REVEAL ================== */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ================== PROGRESS + HEADER ================== */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));z-index:1000;transition:width .1s linear}
+.header{position:fixed;top:0;left:0;right:0;z-index:600;padding:18px 0;transition:padding .3s ease,background .3s ease,box-shadow .3s ease,border-color .3s ease;border-bottom:1px solid transparent}
+.header.scrolled{background:rgba(14,17,22,.82);backdrop-filter:blur(14px);padding:12px 0;border-bottom-color:var(--line);box-shadow:0 10px 30px -18px rgba(0,0,0,.8)}
+.header__in{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.logo__txt{font-weight:800;font-size:20px;letter-spacing:.02em}
+.logo__txt em{font-style:normal;color:var(--accent)}
+.nav ul{display:flex;align-items:center;gap:26px}
+.nav a{font-size:14.5px;font-weight:600;color:var(--muted);position:relative;transition:color .2s ease;white-space:nowrap}
+.nav a:hover{color:var(--text)}
+.nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--accent);transition:width .25s ease}
+.nav a:hover::after{width:100%}
+.nav__cta,.nav__phone{display:none}
+.header__act{display:flex;align-items:center;gap:16px;flex-shrink:0}
+.header__phone{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14.5px;white-space:nowrap}
+.header__phone svg{width:17px;height:17px;color:var(--accent)}
+.burger{display:none;flex-direction:column;gap:5px;width:26px;padding:4px 0}
+.burger span{height:2px;width:100%;background:var(--text);border-radius:2px;transition:transform .25s ease,opacity .25s ease}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ================== HERO ================== */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:150px 0 90px;overflow:hidden;
+  background:
+    radial-gradient(1200px 700px at 78% -5%,rgba(255,157,46,.14),transparent 55%),
+    radial-gradient(900px 600px at 8% 25%,rgba(58,80,120,.28),transparent 60%),
+    linear-gradient(180deg,#0e1116 0%,#0c0f14 100%)}
+.hero__grid{position:absolute;inset:0;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:52px 52px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 40%,#000 30%,transparent 78%);
+          mask-image:radial-gradient(ellipse 80% 60% at 50% 40%,#000 30%,transparent 78%)}
+.hero__in{position:relative;display:grid;grid-template-columns:1.12fr .88fr;gap:44px;align-items:center;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  background:var(--accent-soft);border:1px solid rgba(255,157,46,.24);padding:7px 15px;border-radius:100px;margin-bottom:24px}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(255,157,46,.22)}
+.hero h1{font-size:clamp(36px,5.2vw,62px);margin-bottom:22px}
+.hero h1 .g{background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero__lead{color:var(--muted);font-size:clamp(16px,1.6vw,18px);max-width:520px;margin-bottom:34px}
+.hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:52px}
+.hero__stats{display:grid;grid-template-columns:repeat(4,auto);gap:34px}
+.hero__stat .n{font-size:32px;font-weight:800;letter-spacing:-.03em;color:#fff}
+.hero__stat .n .s{color:var(--accent)}
+.hero__stat p{font-size:12.5px;color:var(--muted-2);margin-top:2px;max-width:120px}
+
+/* hero art */
+.hero__art{position:relative}
+.hero__card{position:relative;background:linear-gradient(160deg,var(--surface-2),var(--surface));border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:26px;box-shadow:var(--shadow);overflow:hidden}
+.hero__card::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(125deg,rgba(255,157,46,.06) 0 2px,transparent 2px 30px)}
+.skyline{position:relative;width:100%;height:auto}
+.bld{fill:#232b39}.bld--2{fill:#2a3444}.bld--3{fill:#313d4f}
+.win{fill:var(--accent);opacity:.5}
+.win.lit{opacity:.95}
+.crane{stroke:rgba(255,255,255,.55);stroke-width:2.4;fill:none}
+.crane-dot{fill:var(--accent)}
+.hero__badge{position:absolute;left:16px;bottom:16px;display:flex;align-items:center;gap:11px;
+  background:rgba(14,17,22,.72);backdrop-filter:blur(8px);border:1px solid var(--line-strong);border-radius:14px;padding:12px 16px}
+.hero__badge .ic{width:38px;height:38px;border-radius:10px;background:var(--accent-soft);display:grid;place-items:center;color:var(--accent)}
+.hero__badge strong{display:block;font-size:15px}
+.hero__badge span{font-size:12px;color:var(--muted)}
+.scroll-cue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);color:var(--muted-2);z-index:1;animation:bob 2s infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+/* ================== SECTION HEAD ================== */
+.shead{max-width:640px;margin:0 auto 54px;text-align:center}
+.shead .eyebrow{margin-bottom:18px}
+.shead h2{font-size:clamp(28px,3.5vw,42px);margin-bottom:14px}
+.shead p{color:var(--muted);font-size:16.5px}
+.shead--left{margin:0;text-align:left}
+
+/* ================== ABOUT ================== */
+.about{padding:110px 0;border-top:1px solid var(--line)}
+.about__in{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+.about__media{position:relative;height:440px}
+.about__frame{position:absolute;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line)}
+.about__frame--1{inset:0 22% 20% 0;background:
+  radial-gradient(400px 300px at 70% 20%,rgba(255,157,46,.16),transparent 60%),
+  repeating-linear-gradient(120deg,rgba(255,255,255,.04) 0 2px,transparent 2px 28px),
+  linear-gradient(160deg,var(--surface-3),var(--surface))}
+.about__frame--2{right:0;bottom:0;width:52%;height:46%;background:linear-gradient(150deg,var(--accent),var(--accent-2));border-color:transparent}
+.about__frame--2 svg{position:absolute;right:16px;bottom:14px;width:66px;height:66px;color:rgba(26,18,5,.35)}
+.about__badge{position:absolute;left:-16px;bottom:30px;background:var(--surface-2);border:1px solid var(--line-strong);border-radius:16px;
+  padding:16px 22px;text-align:center;box-shadow:var(--shadow)}
+.about__badge strong{display:block;font-size:28px;color:var(--accent)}
+.about__badge span{font-size:12px;color:var(--muted)}
+.about__c h2{font-size:clamp(27px,3.2vw,38px);margin-bottom:18px}
+.about__c p{color:var(--muted);margin-bottom:16px}
+.about__points{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+.about__points li{display:flex;gap:12px;align-items:flex-start}
+.about__points .ck{flex-shrink:0;width:26px;height:26px;border-radius:8px;background:var(--accent-soft);display:grid;place-items:center;color:var(--accent)}
+.about__points .ck svg{width:15px;height:15px}
+.about__points strong{display:block;font-size:14.5px}
+.about__points span{font-size:13px;color:var(--muted-2)}
+
+/* ================== SERVICES ================== */
+.services{padding:110px 0;background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.services__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.scard{position:relative;padding:30px 26px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-2);
+  transition:transform .28s ease,border-color .28s ease,background .28s ease}
+.scard:hover{transform:translateY(-6px);border-color:rgba(255,157,46,.4);background:var(--surface-3)}
+.scard__ic{width:56px;height:56px;border-radius:14px;background:var(--accent-soft);display:grid;place-items:center;color:var(--accent);margin-bottom:20px;transition:background .28s ease,color .28s ease}
+.scard:hover .scard__ic{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#1a1205}
+.scard__ic svg{width:26px;height:26px}
+.scard h3{font-size:17.5px;margin-bottom:9px}
+.scard p{font-size:13.5px;color:var(--muted)}
+
+/* ================== PROCESS ================== */
+.process{padding:110px 0}
+.process__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.pstep{position:relative;padding:28px 20px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--line)}
+.pstep__n{font-size:15px;font-weight:800;color:var(--accent);display:inline-block;margin-bottom:16px;
+  border:1px solid rgba(255,157,46,.3);border-radius:8px;padding:4px 10px}
+.pstep h3{font-size:16.5px;margin-bottom:9px}
+.pstep p{font-size:13px;color:var(--muted)}
+
+/* ================== PROJECTS ================== */
+.projects{padding:110px 0;background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pfilter{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:44px}
+.fbtn{padding:10px 22px;border-radius:100px;border:1px solid var(--line-strong);font-size:14px;font-weight:600;color:var(--muted);transition:all .2s ease}
+.fbtn:hover{color:var(--text);border-color:rgba(255,255,255,.3)}
+.fbtn.active{background:linear-gradient(135deg,var(--accent),var(--accent-2));border-color:transparent;color:#1a1205}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pcard{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--surface-2);transition:transform .3s ease,border-color .3s ease}
+.pcard:hover{transform:translateY(-6px);border-color:rgba(255,157,46,.4)}
+.pcard__media{position:relative;height:210px;overflow:hidden}
+.pcard__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,12,16,.55))}
+.pm1{background:radial-gradient(300px 200px at 30% 20%,rgba(255,157,46,.22),transparent 60%),linear-gradient(150deg,#2a3444,#141920)}
+.pm2{background:radial-gradient(300px 200px at 70% 30%,rgba(90,140,220,.28),transparent 60%),linear-gradient(150deg,#26303f,#12161d)}
+.pm3{background:radial-gradient(300px 200px at 40% 70%,rgba(255,157,46,.2),transparent 60%),linear-gradient(150deg,#33302a,#161513)}
+.pm4{background:radial-gradient(300px 200px at 60% 25%,rgba(120,200,170,.22),transparent 60%),linear-gradient(150deg,#233330,#12181a)}
+.pm5{background:radial-gradient(300px 200px at 30% 60%,rgba(200,120,220,.22),transparent 60%),linear-gradient(150deg,#2f2839,#161219)}
+.pm6{background:radial-gradient(300px 200px at 70% 40%,rgba(255,157,46,.24),transparent 60%),linear-gradient(150deg,#2c2620,#161311)}
+.pcard__tag{position:absolute;left:14px;top:14px;z-index:1;background:rgba(14,17,22,.66);backdrop-filter:blur(6px);border:1px solid var(--line-strong);
+  color:#fff;font-size:12px;font-weight:700;padding:6px 13px;border-radius:100px}
+.pcard__body{padding:22px 24px}
+.pcard__body h3{font-size:18px;margin-bottom:8px}
+.pcard__body p{font-size:13.5px;color:var(--muted)}
+.pcard__meta{display:flex;gap:16px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.pcard__meta span{font-size:12px;color:var(--muted-2)}
+.pcard__meta b{color:var(--text);font-weight:700}
+.pcard.hide{display:none}
+
+/* ================== REVIEWS ================== */
+.reviews{padding:110px 0 70px}
+.rview{overflow:hidden;padding:6px 0 30px}
+.rtrack{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+  padding:0 max(24px,calc((100% - var(--container))/2)) 8px}
+.rtrack::-webkit-scrollbar{display:none}
+.rcard{scroll-snap-align:start;flex:0 0 370px;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.rcard__top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.rstars{color:var(--accent);letter-spacing:2px;font-size:15px}
+.rquote{color:var(--muted-2);font-size:34px;line-height:1;font-weight:800}
+.rcard p{font-size:14.5px;color:var(--text);margin-bottom:22px}
+.rauthor{display:flex;align-items:center;gap:12px}
+.ravatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#1a1205;
+  display:grid;place-items:center;font-weight:800;font-size:14px;flex-shrink:0}
+.rauthor strong{display:block;font-size:14.5px}
+.rauthor span{font-size:12.5px;color:var(--muted-2)}
+.rctrl{display:flex;justify-content:center;gap:12px}
+.sbtn{width:46px;height:46px;border-radius:50%;border:1px solid var(--line-strong);display:grid;place-items:center;color:var(--text);transition:all .2s ease}
+.sbtn:hover{background:var(--accent);border-color:transparent;color:#1a1205}
+.sbtn svg{width:20px;height:20px}
+
+/* ================== FAQ ================== */
+.faq{padding:110px 0;background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.faq__in{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px}
+.faq__in .btn{margin-top:24px}
+.fitem{border-bottom:1px solid var(--line)}
+.fitem__q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px 0;font-weight:700;font-size:16px;text-align:left}
+.fitem__q .pm{flex-shrink:0;width:30px;height:30px;border-radius:8px;border:1px solid var(--line-strong);display:grid;place-items:center;color:var(--muted);transition:all .25s ease}
+.fitem__q .pm svg{width:15px;height:15px;transition:transform .25s ease}
+.fitem.open .fitem__q .pm{background:var(--accent);border-color:transparent;color:#1a1205}
+.fitem.open .fitem__q .pm svg{transform:rotate(45deg)}
+.fitem__a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.fitem__a p{padding-bottom:22px;color:var(--muted);font-size:14.5px;max-width:560px}
+.fitem.open .fitem__a{max-height:260px}
+
+/* ================== CTA BANNER ================== */
+.cta{padding:20px 0 110px}
+.cta__in{position:relative;overflow:hidden;border-radius:var(--radius-lg);padding:56px;display:flex;align-items:center;justify-content:space-between;
+  gap:30px;flex-wrap:wrap;background:linear-gradient(120deg,#1a212c,#12161d);border:1px solid var(--line)}
+.cta__in::before{content:"";position:absolute;right:-60px;top:-60px;width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,157,46,.28),transparent 65%)}
+.cta__t{position:relative}
+.cta__t h2{font-size:clamp(24px,3vw,34px);margin-bottom:8px}
+.cta__t p{color:var(--muted)}
+.cta__act{position:relative;display:flex;gap:14px;flex-wrap:wrap}
+
+/* ================== CONTACT ================== */
+.contact{padding:110px 0}
+.contact__in{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px}
+.contact__i h2{font-size:clamp(26px,3vw,36px);margin:4px 0 16px}
+.contact__i>p{color:var(--muted);margin-bottom:30px}
+.clist{display:flex;flex-direction:column;gap:18px;margin-bottom:30px}
+.clist li{display:flex;gap:14px;align-items:flex-start}
+.clist .ic{width:44px;height:44px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);display:grid;place-items:center;color:var(--accent);flex-shrink:0}
+.clist .ic svg{width:20px;height:20px}
+.clist strong{display:block;font-size:14px;margin-bottom:2px}
+.clist a,.clist span{font-size:14.5px;color:var(--muted)}
+.clist a:hover{color:var(--accent)}
+.csocial{display:flex;gap:12px}
+.csocial a{width:44px;height:44px;border-radius:12px;border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);transition:all .2s ease}
+.csocial a:hover{background:var(--accent);border-color:transparent;color:#1a1205}
+.csocial a svg{width:20px;height:20px}
+.cform{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:38px}
+.cform h3{font-size:21px;margin-bottom:22px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:13px;font-weight:600;margin-bottom:7px;color:var(--muted)}
+.field input,.field textarea,.field select{width:100%;padding:13px 16px;border-radius:var(--radius-sm);border:1px solid var(--line-strong);
+  background:var(--surface-2);font-size:14.5px;transition:border-color .2s ease,box-shadow .2s ease}
+.field input::placeholder,.field textarea::placeholder{color:var(--muted-2)}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(255,157,46,.16)}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2398a2b3' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:42px}
+.field textarea{resize:vertical;min-height:110px}
+.check{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted-2);margin-bottom:20px;cursor:pointer}
+.check input{margin-top:3px;accent-color:var(--accent);width:16px;height:16px}
+.fsuccess{display:none;margin-top:16px;padding:14px 18px;border-radius:var(--radius-sm);background:rgba(46,180,110,.12);
+  border:1px solid rgba(46,180,110,.35);color:#5fd39a;font-size:13.5px;font-weight:600}
+.fsuccess.show{display:block}
+
+/* ================== FOOTER ================== */
+.footer{background:#0b0e12;border-top:1px solid var(--line);padding:72px 0 0}
+.footer__in{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding-bottom:56px;border-bottom:1px solid var(--line)}
+.footer__brand p{color:var(--muted-2);font-size:14px;margin-top:16px;max-width:300px}
+.footer__col h4{font-size:14px;margin-bottom:18px;letter-spacing:.02em}
+.footer__col ul{display:flex;flex-direction:column;gap:11px}
+.footer__col a,.footer__col li{color:var(--muted-2);font-size:14px;transition:color .2s ease}
+.footer__col a:hover{color:var(--accent)}
+.footer__bot{padding:22px 0}
+.footer__bot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer__bot span{color:var(--muted-2);font-size:13px}
+.footer__legal{display:flex;gap:22px}
+.footer__legal a{color:var(--muted-2);font-size:13px}
+.footer__legal a:hover{color:var(--accent)}
+
+/* ================== TO TOP ================== */
+.totop{position:fixed;right:24px;bottom:24px;z-index:500;width:48px;height:48px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#1a1205;display:grid;place-items:center;
+  opacity:0;visibility:hidden;transform:translateY(10px);transition:all .3s ease;box-shadow:var(--shadow-accent)}
+.totop.show{opacity:1;visibility:visible;transform:none}
+.totop svg{width:20px;height:20px}
+
+/* ================== RESPONSIVE ================== */
+@media (max-width:1080px){
+  .services__grid{grid-template-columns:repeat(2,1fr)}
+  .process__grid{grid-template-columns:repeat(3,1fr)}
+  .pgrid{grid-template-columns:repeat(2,1fr)}
+  .footer__in{grid-template-columns:1fr 1fr}
+}
+@media (max-width:920px){
+  .hero__in{grid-template-columns:1fr}
+  .hero__art{max-width:420px;margin:0 auto 10px;order:-1}
+  .about__in,.faq__in,.contact__in{grid-template-columns:1fr}
+  .about__media{height:360px;max-width:460px}
+  .shead--left{text-align:center;margin:0 auto 40px}
+  .faq__in .btn{display:none}
+}
+@media (max-width:760px){
+  .nav,.header__phone,.header__act .btn--accent{display:none}
+  .burger{display:flex}
+  .nav.open{display:flex;flex-direction:column;position:fixed;inset:0;padding:96px 24px 40px;background:rgba(14,17,22,.98);backdrop-filter:blur(6px);z-index:500;overflow-y:auto}
+  .nav.open ul{flex-direction:column;align-items:flex-start;gap:22px}
+  .nav.open a{font-size:21px;color:var(--text)}
+  .nav.open .nav__phone{display:block;margin-top:30px;color:var(--accent);font-weight:800;font-size:18px}
+  .nav.open .nav__cta{display:inline-flex;margin-top:14px}
+  .hero__stats{grid-template-columns:1fr 1fr;gap:24px}
+  .process__grid{grid-template-columns:1fr 1fr}
+  .pgrid{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}
+  .cta__in{padding:36px 26px}
+  .footer__in{grid-template-columns:1fr}
+}
+@media (max-width:480px){
+  .container{padding:0 18px}
+  .services__grid,.process__grid{grid-template-columns:1fr}
+  .hero__stats{grid-template-columns:1fr 1fr}
+  .cform{padding:26px}
+  .about__badge{left:0}
+}
+</style>
 </head>
 <body>
 
-<div class="progress-bar" id="progressBar"></div>
+<div class="progress" id="progress"></div>
 
+<!-- HEADER -->
 <header class="header" id="header">
-  <div class="container header__inner">
+  <div class="container header__in">
     <a href="#hero" class="logo">
-      <span class="logo__mark" aria-hidden="true">
-        <svg viewBox="0 0 40 40" width="38" height="38"><rect width="40" height="40" rx="10" fill="#151b26"/><path d="M10 29V15l5-4 5 4v14M25 29V19l5-4v14" stroke="#f5a524" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </span>
-      <span class="logo__text">АТЛАНТ<em>СТРОЙ</em></span>
+      <svg viewBox="0 0 40 40" width="40" height="40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1b212c"/><path d="M10 29V15l5-4 5 4v14M25 29V19l5-4v14" stroke="#ff9d2e" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="logo__txt">АТЛАНТ<em>СТРОЙ</em></span>
     </a>
-
-    <nav class="nav" id="nav" aria-label="Основная навигация">
-      <ul class="nav__list">
-        <li><a href="#about">Компания</a></li>
+    <nav class="nav" id="nav" aria-label="Меню">
+      <ul>
+        <li><a href="#about">О компании</a></li>
         <li><a href="#services">Услуги</a></li>
-        <li><a href="#process">Как мы работаем</a></li>
+        <li><a href="#process">Этапы</a></li>
         <li><a href="#projects">Проекты</a></li>
         <li><a href="#reviews">Отзывы</a></li>
         <li><a href="#faq">Вопросы</a></li>
         <li><a href="#contact">Контакты</a></li>
       </ul>
-      <a href="tel:+77001234567" class="nav__cta-phone">+7 (700) 123-45-67</a>
+      <a href="tel:+77001234567" class="nav__phone">+7 (700) 123-45-67</a>
       <a href="#contact" class="btn btn--accent nav__cta">Оставить заявку</a>
     </nav>
-
-    <div class="header__actions">
+    <div class="header__act">
       <a href="tel:+77001234567" class="header__phone">
-        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1.1.5 1.1 1.1V21c0 .6-.5 1.1-1.1 1.1C11.1 22.1 1.9 12.9 1.9 1.5 1.9.9 2.4.4 3 .4h4.4c.6 0 1.1.5 1.1 1.1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z" fill="currentColor"/></svg>
-        <span>+7 (700) 123-45-67</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1.1.5 1.1 1.1V21c0 .6-.5 1.1-1.1 1.1C11.1 22.1 1.9 12.9 1.9 1.5 1.9.9 2.4.4 3 .4h4.4c.6 0 1.1.5 1.1 1.1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z" fill="currentColor"/></svg>
+        +7 (700) 123-45-67
       </a>
       <a href="#contact" class="btn btn--accent btn--sm">Оставить заявку</a>
-      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
 <main>
 
-  <section class="hero" id="hero">
-    <div class="hero__grid" aria-hidden="true"></div>
-    <div class="container hero__inner">
-      <div class="hero__content reveal">
-        <span class="eyebrow">Строительная компания полного цикла</span>
-        <h1>Строим надёжно.<br>Строим <span class="accent-text">на десятилетия.</span></h1>
-        <p class="hero__lead">Проектируем, строим и сдаём жилые и коммерческие объекты под ключ — от первого эскиза до подписания акта приёма-передачи. Прозрачная смета, фиксированные сроки, гарантия до 5 лет.</p>
-        <div class="hero__cta">
-          <a href="#contact" class="btn btn--accent btn--lg">Получить расчёт стоимости</a>
-          <a href="#projects" class="btn btn--ghost btn--lg">Смотреть проекты</a>
-        </div>
-        <div class="hero__stats">
-          <div class="hero__stat">
-            <span class="counter" data-target="15">0</span><span class="hero__stat-suffix">+</span>
-            <p>лет на рынке</p>
-          </div>
-          <div class="hero__stat">
-            <span class="counter" data-target="240">0</span><span class="hero__stat-suffix">+</span>
-            <p>сданных объектов</p>
-          </div>
-          <div class="hero__stat">
-            <span class="counter" data-target="98">0</span><span class="hero__stat-suffix">%</span>
-            <p>клиентов рекомендуют нас</p>
-          </div>
-          <div class="hero__stat">
-            <span class="counter" data-target="5">0</span><span class="hero__stat-suffix">&nbsp;лет</span>
-            <p>гарантии на работы</p>
-          </div>
-        </div>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero__grid" aria-hidden="true"></div>
+  <div class="container hero__in">
+    <div class="hero__c reveal">
+      <span class="eyebrow">Строительная компания полного цикла</span>
+      <h1>Строим надёжно.<br>Строим <span class="g">на десятилетия.</span></h1>
+      <p class="hero__lead">Проектируем, строим и сдаём жилые и коммерческие объекты под ключ — от первого эскиза до вручения ключей. Прозрачная смета, фиксированные сроки, гарантия до 5 лет.</p>
+      <div class="hero__cta">
+        <a href="#contact" class="btn btn--accent btn--lg">Рассчитать стоимость
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#projects" class="btn btn--ghost btn--lg">Наши проекты</a>
       </div>
+      <div class="hero__stats">
+        <div class="hero__stat"><div class="n"><span class="counter" data-to="15">0</span><span class="s">+</span></div><p>лет на рынке</p></div>
+        <div class="hero__stat"><div class="n"><span class="counter" data-to="240">0</span><span class="s">+</span></div><p>сданных объектов</p></div>
+        <div class="hero__stat"><div class="n"><span class="counter" data-to="98">0</span><span class="s">%</span></div><p>клиентов рекомендуют</p></div>
+        <div class="hero__stat"><div class="n"><span class="counter" data-to="5">0</span><span class="s"> лет</span></div><p>гарантии на работы</p></div>
+      </div>
+    </div>
 
-      <div class="hero__art reveal" aria-hidden="true">
-        <svg viewBox="0 0 480 420" class="skyline">
-          <rect x="30" y="230" width="70" height="150" rx="4" class="bld bld--1"/>
-          <rect x="115" y="170" width="80" height="210" rx="4" class="bld bld--2"/>
-          <rect x="210" y="120" width="90" height="260" rx="4" class="bld bld--3"/>
-          <rect x="315" y="200" width="70" height="180" rx="4" class="bld bld--1"/>
-          <rect x="230" y="140" width="50" height="16" class="bld-detail"/>
-          <line x1="255" y1="40" x2="255" y2="140" class="crane-line"/>
-          <line x1="255" y1="50" x2="360" y2="50" class="crane-line"/>
-          <line x1="255" y1="50" x2="200" y2="70" class="crane-line"/>
-          <line x1="345" y1="50" x2="345" y2="90" class="crane-line"/>
-          <circle cx="255" cy="40" r="5" class="crane-dot"/>
-          <g class="bld-windows">
-            <rect x="42" y="245" width="12" height="12"/><rect x="64" y="245" width="12" height="12"/>
-            <rect x="42" y="270" width="12" height="12"/><rect x="64" y="270" width="12" height="12"/>
-            <rect x="42" y="295" width="12" height="12"/><rect x="64" y="295" width="12" height="12"/>
-            <rect x="130" y="190" width="14" height="14"/><rect x="156" y="190" width="14" height="14"/>
-            <rect x="130" y="220" width="14" height="14"/><rect x="156" y="220" width="14" height="14"/>
-            <rect x="130" y="250" width="14" height="14"/><rect x="156" y="250" width="14" height="14"/>
-            <rect x="228" y="160" width="15" height="16"/><rect x="256" y="160" width="15" height="16"/>
-            <rect x="228" y="195" width="15" height="16"/><rect x="256" y="195" width="15" height="16"/>
-            <rect x="228" y="230" width="15" height="16"/><rect x="256" y="230" width="15" height="16"/>
-            <rect x="330" y="220" width="12" height="12"/><rect x="352" y="220" width="12" height="12"/>
-            <rect x="330" y="245" width="12" height="12"/><rect x="352" y="245" width="12" height="12"/>
+    <div class="hero__art reveal" aria-hidden="true">
+      <div class="hero__card">
+        <svg viewBox="0 0 460 380" class="skyline">
+          <rect x="20" y="220" width="70" height="150" rx="5" class="bld"/>
+          <rect x="105" y="160" width="82" height="210" rx="5" class="bld--2"/>
+          <rect x="202" y="110" width="94" height="260" rx="5" class="bld--3"/>
+          <rect x="312" y="190" width="72" height="180" rx="5" class="bld"/>
+          <rect x="398" y="250" width="46" height="120" rx="5" class="bld--2"/>
+          <rect x="224" y="126" width="50" height="15" fill="#ff9d2e" opacity=".9"/>
+          <line x1="248" y1="30" x2="248" y2="126" class="crane"/>
+          <line x1="248" y1="42" x2="360" y2="42" class="crane"/>
+          <line x1="248" y1="42" x2="196" y2="66" class="crane"/>
+          <line x1="345" y1="42" x2="345" y2="86" class="crane"/>
+          <circle cx="248" cy="30" r="5" class="crane-dot"/>
+          <g>
+            <rect x="34" y="236" width="12" height="12" class="win lit"/><rect x="56" y="236" width="12" height="12" class="win"/>
+            <rect x="34" y="262" width="12" height="12" class="win"/><rect x="56" y="262" width="12" height="12" class="win lit"/>
+            <rect x="34" y="288" width="12" height="12" class="win lit"/><rect x="56" y="288" width="12" height="12" class="win"/>
+            <rect x="120" y="180" width="14" height="14" class="win"/><rect x="146" y="180" width="14" height="14" class="win lit"/>
+            <rect x="120" y="210" width="14" height="14" class="win lit"/><rect x="146" y="210" width="14" height="14" class="win"/>
+            <rect x="120" y="240" width="14" height="14" class="win"/><rect x="146" y="240" width="14" height="14" class="win lit"/>
+            <rect x="222" y="152" width="15" height="16" class="win lit"/><rect x="250" y="152" width="15" height="16" class="win"/>
+            <rect x="222" y="186" width="15" height="16" class="win"/><rect x="250" y="186" width="15" height="16" class="win lit"/>
+            <rect x="222" y="220" width="15" height="16" class="win lit"/><rect x="250" y="220" width="15" height="16" class="win"/>
+            <rect x="326" y="210" width="12" height="12" class="win"/><rect x="348" y="210" width="12" height="12" class="win lit"/>
+            <rect x="326" y="236" width="12" height="12" class="win lit"/><rect x="348" y="236" width="12" height="12" class="win"/>
           </g>
         </svg>
-      </div>
-    </div>
-    <a href="#about" class="scroll-cue" aria-label="Прокрутить вниз">
-      <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-  </section>
-
-  <section class="about" id="about">
-    <div class="container about__inner">
-      <div class="about__media reveal" aria-hidden="true">
-        <div class="about__media-block about__media-block--1"></div>
-        <div class="about__media-block about__media-block--2"></div>
-        <div class="about__badge">
-          <strong>15+</strong>
-          <span>лет строим доверие</span>
-        </div>
-      </div>
-
-      <div class="about__content reveal">
-        <span class="eyebrow">О компании</span>
-        <h2>Команда, для которой важен каждый метр вашего объекта</h2>
-        <p>АТЛАНТ СТРОЙ работает на рынке с 2010 года и специализируется на строительстве жилых домов, коммерческой недвижимости, а также на ремонте и реконструкции объектов любой сложности. Мы берём на себя весь цикл: от проектирования и согласований до сдачи «под ключ».</p>
-        <p>В штате — собственные бригады, инженеры и технадзор, поэтому мы не зависим от подрядчиков‑посредников и отвечаем за качество на каждом этапе лично.</p>
-
-        <ul class="about__points">
-          <li>
-            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#f5a524" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>Собственные бригады и техника</strong><span>без субподряда и наценок посредников</span></div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#f5a524" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>Фиксированная смета в договоре</strong><span>стоимость не меняется в процессе работ</span></div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#f5a524" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>Независимый технадзор</strong><span>контроль качества на каждом этапе стройки</span></div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#f5a524" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>Гарантия до 5 лет</strong><span>официальный договор и полное сопровождение</span></div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="services" id="services">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Услуги</span>
-        <h2>Полный цикл строительных работ</h2>
-        <p>Берём проект на любой стадии — от идеи и эскиза до финальной отделки и сдачи объекта в эксплуатацию.</p>
-      </div>
-
-      <div class="services__grid">
-        <article class="service-card reveal">
-          <div class="service-card__icon"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M4 21V10l8-6 8 6v11M4 21h16M9 21v-7h6v7" stroke="#151b26" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <h3>Жилищное строительство</h3>
-          <p>Частные дома, коттеджи и таунхаусы под ключ — от фундамента до отделки и благоустройства участка.</p>
-        </article>
-
-        <article class="service-card reveal">
-          <div class="service-card__icon"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M3 21h18M6 21V7l6-4 6 4v14M10 21v-5h4v5M9 10h.01M9 14h.01M15 10h.01M15 14h.01" stroke="#151b26" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <h3>Коммерческое строительство</h3>
-          <p>Офисные центры, торговые павильоны и складские комплексы с учётом технических регламентов.</p>
-        </article>
-
-        <article class="service-card reveal">
-          <div class="service-card__icon"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M4 20h16M6 20V10l4-2v12M14 20V6l4 2v12M9 13h1M9 16h1M17 12h1M17 16h1" stroke="#151b26" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <h3>Проектирование и дизайн</h3>
-          <p>Архитектурная концепция, рабочая документация и 3D‑визуализация будущего объекта.</p>
-        </article>
-
-        <article class="service-card reveal">
-          <div class="service-card__icon"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M14.7 6.3l3 3-8.4 8.4-4 1 1-4 8.4-8.4z" stroke="#151b26" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 21h18" stroke="#151b26" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-          <h3>Ремонт и реконструкция</h3>
-          <p>Капитальный и косметический ремонт, перепланировка и реконструкция зданий любого назначения.</p>
-        </article>
-
-        <article class="service-card reveal">
-          <div class="service-card__icon"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M3 13l9-9 9 9M5 11v10h14V11" stroke="#151b26" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <h3>Кровельные работы</h3>
-          <p>Монтаж и ремонт кровли любой сложности с гидро‑ и теплоизоляцией по современным стандартам.</p>
-        </article>
-
-        <article class="service-card reveal">
-          <div class="service-card__icon"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M4 20V10h16v10M4 20h16M8 20v-6h3v6M13 20v-4h3v4" stroke="#151b26" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <h3>Фундаментные работы</h3>
-          <p>Геологические изыскания, устройство свайных, ленточных и монолитных фундаментов.</p>
-        </article>
-
-        <article class="service-card reveal">
-          <div class="service-card__icon"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" stroke="#151b26" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <h3>Инженерные сети</h3>
-          <p>Электрика, водоснабжение, отопление и вентиляция — проектирование и монтаж «под ключ».</p>
-        </article>
-
-        <article class="service-card reveal">
-          <div class="service-card__icon"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M9 4h6v3H9V4zM6 7h12v14H6V7z" stroke="#151b26" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#151b26" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <h3>Генеральный подряд</h3>
-          <p>Управление проектом, координация подрядчиков и контроль сроков и бюджета стройки.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="process" id="process">
-    <div class="container">
-      <div class="section-head section-head--light reveal">
-        <span class="eyebrow">Как мы работаем</span>
-        <h2>Пять шагов от идеи до сдачи объекта</h2>
-        <p>Прозрачный процесс без скрытых доплат и неожиданных сюрпризов на любом этапе строительства.</p>
-      </div>
-
-      <div class="process__list">
-        <div class="process__item reveal">
-          <span class="process__num">01</span>
-          <h3>Заявка и консультация</h3>
-          <p>Обсуждаем задачу, выезжаем на объект или изучаем участок, отвечаем на все вопросы.</p>
-        </div>
-        <div class="process__item reveal">
-          <span class="process__num">02</span>
-          <h3>Проект и смета</h3>
-          <p>Готовим проектную документацию, 3D‑визуализацию и детальную смету с фиксированной ценой.</p>
-        </div>
-        <div class="process__item reveal">
-          <span class="process__num">03</span>
-          <h3>Договор</h3>
-          <p>Заключаем официальный договор с графиком работ, этапами оплаты и гарантийными обязательствами.</p>
-        </div>
-        <div class="process__item reveal">
-          <span class="process__num">04</span>
-          <h3>Строительство</h3>
-          <p>Ведём работы по графику под контролем технадзора, регулярно отчитываемся о ходе стройки.</p>
-        </div>
-        <div class="process__item reveal">
-          <span class="process__num">05</span>
-          <h3>Сдача и гарантия</h3>
-          <p>Передаём объект по акту, предоставляем исполнительную документацию и гарантию до 5 лет.</p>
+        <div class="hero__badge">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L3 7v6c0 5 3.8 8.3 9 9 5.2-.7 9-4 9-9V7l-9-5z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div><strong>Работаем по договору</strong><span>гарантия и фиксированная смета</span></div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+  <a href="#about" class="scroll-cue" aria-label="Вниз"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</section>
 
-  <section class="projects" id="projects">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Портфолио</span>
-        <h2>Реализованные проекты</h2>
-        <p>Часть объектов, которые мы спроектировали и построили за последние годы.</p>
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container about__in">
+    <div class="about__media reveal" aria-hidden="true">
+      <div class="about__frame about__frame--1"></div>
+      <div class="about__frame about__frame--2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V10l8-6 8 6v11M4 21h16M9 21v-7h6v7"/></svg>
       </div>
-
-      <div class="projects__filter reveal" role="tablist" aria-label="Фильтр проектов">
-        <button class="filter-btn is-active" data-filter="all">Все проекты</button>
-        <button class="filter-btn" data-filter="residential">Жилые дома</button>
-        <button class="filter-btn" data-filter="commercial">Коммерческие</button>
-        <button class="filter-btn" data-filter="renovation">Ремонт и отделка</button>
-      </div>
-
-      <div class="projects__grid" id="projectsGrid">
-        <article class="project-card reveal" data-category="residential">
-          <div class="project-card__media project-card__media--1">
-            <span class="project-card__tag">Жилые дома</span>
-          </div>
-          <div class="project-card__body">
-            <h3>Загородный дом, 240 м²</h3>
-            <p>Кирпичный дом в 2 этажа с террасой и гаражом. Срок строительства — 7 месяцев.</p>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-category="commercial">
-          <div class="project-card__media project-card__media--2">
-            <span class="project-card__tag">Коммерческие</span>
-          </div>
-          <div class="project-card__body">
-            <h3>Бизнес‑центр класса А</h3>
-            <p>5‑этажное офисное здание 3 800 м² с подземным паркингом.</p>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-category="renovation">
-          <div class="project-card__media project-card__media--3">
-            <span class="project-card__tag">Ремонт</span>
-          </div>
-          <div class="project-card__body">
-            <h3>Реконструкция квартиры</h3>
-            <p>Полная перепланировка и капитальный ремонт квартиры 130 м².</p>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-category="residential">
-          <div class="project-card__media project-card__media--4">
-            <span class="project-card__tag">Жилые дома</span>
-          </div>
-          <div class="project-card__body">
-            <h3>Комплекс таунхаусов</h3>
-            <p>8 блок‑секций по 160 м² с общим благоустройством территории.</p>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-category="commercial">
-          <div class="project-card__media project-card__media--5">
-            <span class="project-card__tag">Коммерческие</span>
-          </div>
-          <div class="project-card__body">
-            <h3>Складской комплекс</h3>
-            <p>Логистический склад 6 000 м² с погрузочными зонами и офисным блоком.</p>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-category="renovation">
-          <div class="project-card__media project-card__media--6">
-            <span class="project-card__tag">Ремонт</span>
-          </div>
-          <div class="project-card__body">
-            <h3>Ремонт офисных помещений</h3>
-            <p>Отделка open‑space офиса 450 м² под ключ за 6 недель.</p>
-          </div>
-        </article>
-      </div>
+      <div class="about__badge"><strong>15+</strong><span>лет строим доверие</span></div>
     </div>
-  </section>
-
-  <section class="reviews" id="reviews">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Отзывы</span>
-        <h2>Что говорят наши клиенты</h2>
-        <p>Нам доверяют строительство своих домов и объектов — вот несколько отзывов.</p>
-      </div>
-    </div>
-
-    <div class="reviews__viewport">
-      <div class="reviews__track" id="reviewsTrack">
-        <article class="review-card reveal">
-          <div class="review-card__stars" aria-label="5 из 5">★★★★★</div>
-          <p>«Строили дом под ключ — уложились в срок и в смету день в день. Отдельное спасибо за честность: ни одной скрытой доплаты за все 7 месяцев».</p>
-          <div class="review-card__author">
-            <span class="review-card__avatar">АК</span>
-            <div><strong>Александр Ким</strong><span>Загородный дом, 240 м²</span></div>
-          </div>
-        </article>
-
-        <article class="review-card reveal">
-          <div class="review-card__stars" aria-label="5 из 5">★★★★★</div>
-          <p>«Реконструировали офис для нашей компании. Понравился технадзор — все этапы фиксировали фото и присылали отчёты. Результат превзошёл ожидания».</p>
-          <div class="review-card__author">
-            <span class="review-card__avatar">ДН</span>
-            <div><strong>Дана Нурланова</strong><span>Ремонт офиса, 450 м²</span></div>
-          </div>
-        </article>
-
-        <article class="review-card reveal">
-          <div class="review-card__stars" aria-label="5 из 5">★★★★★</div>
-          <p>«Заказывали проект и строительство складского комплекса. Профессиональная команда, быстро согласовали все технические вопросы с нашими требованиями».</p>
-          <div class="review-card__author">
-            <span class="review-card__avatar">МТ</span>
-            <div><strong>Марат Турсунов</strong><span>Складской комплекс</span></div>
-          </div>
-        </article>
-
-        <article class="review-card reveal">
-          <div class="review-card__stars" aria-label="4 из 5">★★★★☆</div>
-          <p>«Хорошее качество кладки и отделки, ремонт квартиры сделали аккуратно. Был небольшой сдвиг по срокам из-за поставки материалов, но нас предупредили заранее».</p>
-          <div class="review-card__author">
-            <span class="review-card__avatar">ЕС</span>
-            <div><strong>Елена Соколова</strong><span>Реконструкция квартиры</span></div>
-          </div>
-        </article>
-
-        <article class="review-card reveal">
-          <div class="review-card__stars" aria-label="5 из 5">★★★★★</div>
-          <p>«Строили таунхаусы под продажу — важна была скорость и качество одновременно. Команда справилась на отлично, будем работать и дальше».</p>
-          <div class="review-card__author">
-            <span class="review-card__avatar">РБ</span>
-            <div><strong>Руслан Байтасов</strong><span>Комплекс таунхаусов</span></div>
-          </div>
-        </article>
-      </div>
-    </div>
-
-    <div class="reviews__controls">
-      <button class="slider-btn" id="reviewPrev" aria-label="Предыдущий отзыв">
-        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <button class="slider-btn" id="reviewNext" aria-label="Следующий отзыв">
-        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
-  </section>
-
-  <section class="faq" id="faq">
-    <div class="container faq__inner">
-      <div class="section-head section-head--left reveal">
-        <span class="eyebrow">Вопросы и ответы</span>
-        <h2>Часто задаваемые вопросы</h2>
-        <p>Не нашли ответ на свой вопрос? Свяжитесь с нами — проконсультируем бесплатно.</p>
-        <a href="#contact" class="btn btn--dark">Задать вопрос</a>
-      </div>
-
-      <div class="faq__list reveal">
-        <div class="faq-item is-open">
-          <button class="faq-item__q">
-            <span>Сколько стоит строительство дома под ключ?</span>
-            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          </button>
-          <div class="faq-item__a">
-            <p>Стоимость зависит от площади, материалов и сложности проекта. После консультации и выезда на участок мы готовим детальную смету с фиксированной итоговой суммой, которая прописывается в договоре.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__q">
-            <span>Какие гарантии вы предоставляете?</span>
-            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          </button>
-          <div class="faq-item__a">
-            <p>На все виды строительных и отделочных работ действует гарантия от 2 до 5 лет в зависимости от типа работ. Условия гарантии фиксируются в договоре.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__q">
-            <span>Работаете ли вы за пределами города?</span>
-            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          </button>
-          <div class="faq-item__a">
-            <p>Да, мы реализуем проекты по всему региону. Стоимость и сроки выезда бригад на удалённые объекты обсуждаются индивидуально.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__q">
-            <span>Как формируется смета проекта?</span>
-            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          </button>
-          <div class="faq-item__a">
-            <p>Смета составляется на основе проекта и выбранных материалов, с постатейной разбивкой по видам работ. Вы видите полную структуру затрат ещё до подписания договора.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__q">
-            <span>Возможна ли рассрочка оплаты?</span>
-            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          </button>
-          <div class="faq-item__a">
-            <p>Да, оплата разбивается на этапы согласно графику работ: аванс, промежуточные платежи по факту выполнения этапов и финальный расчёт при сдаче объекта.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__q">
-            <span>Сколько времени занимает строительство дома?</span>
-            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          </button>
-          <div class="faq-item__a">
-            <p>В среднем — от 5 до 9 месяцев для частного дома площадью 150–300 м², в зависимости от сложности проекта и сезона. Точный срок фиксируется в графике работ.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta">
-    <div class="container cta__inner reveal">
-      <div>
-        <h2>Готовы обсудить свой проект?</h2>
-        <p>Оставьте заявку — перезвоним в течение 15 минут и рассчитаем предварительную стоимость.</p>
-      </div>
-      <div class="cta__actions">
-        <a href="tel:+77001234567" class="btn btn--ghost-light btn--lg">+7 (700) 123‑45‑67</a>
-        <a href="#contact" class="btn btn--accent btn--lg">Оставить заявку</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <div class="container contact__inner">
-      <div class="contact__info reveal">
-        <span class="eyebrow">Контакты</span>
-        <h2>Свяжитесь с нами удобным способом</h2>
-        <p>Ответим на вопросы, выедем на замер и подготовим предварительный расчёт стоимости бесплатно.</p>
-
-        <ul class="contact__list">
-          <li>
-            <span class="contact__icon"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1.1.5 1.1 1.1V21c0 .6-.5 1.1-1.1 1.1C11.1 22.1 1.9 12.9 1.9 1.5 1.9.9 2.4.4 3 .4h4.4c.6 0 1.1.5 1.1 1.1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z" fill="currentColor"/></svg></span>
-            <div><strong>Телефон</strong><a href="tel:+77001234567">+7 (700) 123‑45‑67</a></div>
-          </li>
-          <li>
-            <span class="contact__icon"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6l9 7 9-7M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <div><strong>Email</strong><a href="mailto:info@atlant-stroy.example">info@atlant-stroy.example</a></div>
-          </li>
-          <li>
-            <span class="contact__icon"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></span>
-            <div><strong>Офис</strong><span>г. Алматы, ул. Строителей, 24</span></div>
-          </li>
-          <li>
-            <span class="contact__icon"><svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
-            <div><strong>Часы работы</strong><span>Пн–Сб: 09:00–19:00</span></div>
-          </li>
-        </ul>
-
-        <div class="contact__social">
-          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg></a>
-          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M20 12a8 8 0 1 1-14.7-4.4L4 21l4.6-1.2A8 8 0 0 1 20 12z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/></svg></a>
-          <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M21 4L3 11.5l6 2M21 4l-4 16-8-6.5M21 4L9 13.5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round" stroke-linecap="round"/></svg></a>
-        </div>
-      </div>
-
-      <form class="contact__form reveal" id="contactForm" novalidate>
-        <h3>Оставить заявку</h3>
-        <div class="form-row">
-          <div class="form-field">
-            <label for="name">Имя</label>
-            <input type="text" id="name" name="name" placeholder="Как к вам обращаться" required>
-          </div>
-          <div class="form-field">
-            <label for="phone">Телефон</label>
-            <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
-          </div>
-        </div>
-        <div class="form-field">
-          <label for="service">Услуга</label>
-          <select id="service" name="service">
-            <option value="">Выберите услугу</option>
-            <option value="residential">Жилищное строительство</option>
-            <option value="commercial">Коммерческое строительство</option>
-            <option value="design">Проектирование и дизайн</option>
-            <option value="renovation">Ремонт и реконструкция</option>
-            <option value="other">Другое</option>
-          </select>
-        </div>
-        <div class="form-field">
-          <label for="message">Сообщение</label>
-          <textarea id="message" name="message" rows="4" placeholder="Кратко опишите задачу"></textarea>
-        </div>
-        <label class="form-check">
-          <input type="checkbox" id="consent" name="consent" required>
-          <span>Согласен(-на) на обработку персональных данных</span>
-        </label>
-        <button type="submit" class="btn btn--accent btn--lg btn--block">Отправить заявку</button>
-        <p class="form-success" id="formSuccess" role="status">Спасибо! Ваша заявка отправлена — мы свяжемся с вами в ближайшее время.</p>
-      </form>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="container footer__inner">
-    <div class="footer__brand">
-      <a href="#hero" class="logo logo--light">
-        <span class="logo__mark" aria-hidden="true">
-          <svg viewBox="0 0 40 40" width="34" height="34"><rect width="40" height="40" rx="10" fill="#f5a524"/><path d="M10 29V15l5-4 5 4v14M25 29V19l5-4v14" stroke="#151b26" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-        <span class="logo__text">АТЛАНТ<em>СТРОЙ</em></span>
-      </a>
-      <p>Строительная компания полного цикла: проектирование, строительство и ремонт жилых и коммерческих объектов под ключ.</p>
-    </div>
-
-    <div class="footer__col">
-      <h4>Услуги</h4>
-      <ul>
-        <li><a href="#services">Жилищное строительство</a></li>
-        <li><a href="#services">Коммерческое строительство</a></li>
-        <li><a href="#services">Проектирование и дизайн</a></li>
-        <li><a href="#services">Ремонт и реконструкция</a></li>
-      </ul>
-    </div>
-
-    <div class="footer__col">
-      <h4>Компания</h4>
-      <ul>
-        <li><a href="#about">О нас</a></li>
-        <li><a href="#projects">Проекты</a></li>
-        <li><a href="#reviews">Отзывы</a></li>
-        <li><a href="#faq">Вопросы</a></li>
-      </ul>
-    </div>
-
-    <div class="footer__col">
-      <h4>Контакты</h4>
-      <ul>
-        <li><a href="tel:+77001234567">+7 (700) 123‑45‑67</a></li>
-        <li><a href="mailto:info@atlant-stroy.example">info@atlant-stroy.example</a></li>
-        <li>г. Алматы, ул. Строителей, 24</li>
+    <div class="about__c reveal">
+      <span class="eyebrow">О компании</span>
+      <h2>Команда, для которой важен каждый метр вашего объекта</h2>
+      <p>АТЛАНТ СТРОЙ работает с 2010 года и специализируется на строительстве жилых домов, коммерческой недвижимости, а также на ремонте и реконструкции объектов любой сложности. Берём на себя весь цикл — от проектирования и согласований до сдачи «под ключ».</p>
+      <p>В штате собственные бригады, инженеры и технадзор, поэтому мы не зависим от посредников и отвечаем за качество на каждом этапе лично.</p>
+      <ul class="about__points">
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><strong>Свои бригады и техника</strong><span>без субподряда и наценок</span></div></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><strong>Фиксированная смета</strong><span>цена закреплена в договоре</span></div></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><strong>Независимый технадзор</strong><span>контроль на каждом этапе</span></div></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><strong>Гарантия до 5 лет</strong><span>официальный договор</span></div></li>
       </ul>
     </div>
   </div>
+</section>
 
-  <div class="footer__bottom">
-    <div class="container footer__bottom-inner">
-      <span>© <span id="year"></span> АТЛАНТ СТРОЙ. Все права защищены.</span>
-      <div class="footer__legal">
-        <a href="#">Политика конфиденциальности</a>
-        <a href="#">Договор оферты</a>
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="shead reveal">
+      <span class="eyebrow">Услуги</span>
+      <h2>Полный цикл строительных работ</h2>
+      <p>Берём проект на любой стадии — от идеи и эскиза до финальной отделки и сдачи объекта в эксплуатацию.</p>
+    </div>
+    <div class="services__grid">
+      <article class="scard reveal"><div class="scard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V10l8-6 8 6v11M4 21h16M9 21v-7h6v7" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Жилищное строительство</h3><p>Частные дома, коттеджи и таунхаусы под ключ — от фундамента до отделки и благоустройства.</p></article>
+      <article class="scard reveal"><div class="scard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M6 21V7l6-4 6 4v14M10 21v-5h4v5M9 10h.01M9 14h.01M15 10h.01M15 14h.01" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Коммерческие объекты</h3><p>Офисные центры, торговые павильоны и склады с учётом технических регламентов.</p></article>
+      <article class="scard reveal"><div class="scard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M6 20V10l4-2v12M14 20V6l4 2v12M9 13h1M9 16h1M17 12h1M17 16h1" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Проектирование</h3><p>Архитектурная концепция, рабочая документация и 3D-визуализация будущего объекта.</p></article>
+      <article class="scard reveal"><div class="scard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3l3 3-8.4 8.4-4 1 1-4 8.4-8.4zM3 21h18" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Ремонт и отделка</h3><p>Капитальный и косметический ремонт, перепланировка и реконструкция зданий.</p></article>
+      <article class="scard reveal"><div class="scard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 13l9-9 9 9M5 11v10h14V11" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Кровельные работы</h3><p>Монтаж и ремонт кровли любой сложности с гидро- и теплоизоляцией.</p></article>
+      <article class="scard reveal"><div class="scard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10h16v10M4 20h16M8 20v-6h3v6M13 20v-4h3v4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Фундаменты</h3><p>Геологические изыскания, устройство свайных, ленточных и монолитных фундаментов.</p></article>
+      <article class="scard reveal"><div class="scard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Инженерные сети</h3><p>Электрика, водоснабжение, отопление и вентиляция — проектирование и монтаж.</p></article>
+      <article class="scard reveal"><div class="scard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 4h6v3H9zM6 7h12v14H6zM9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Генеральный подряд</h3><p>Управление проектом, координация подрядчиков и контроль сроков и бюджета.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="shead reveal">
+      <span class="eyebrow">Как мы работаем</span>
+      <h2>Пять шагов от идеи до ключей</h2>
+      <p>Прозрачный процесс без скрытых доплат и сюрпризов на любом этапе строительства.</p>
+    </div>
+    <div class="process__grid">
+      <div class="pstep reveal"><span class="pstep__n">01</span><h3>Заявка и консультация</h3><p>Обсуждаем задачу, выезжаем на объект, отвечаем на все вопросы.</p></div>
+      <div class="pstep reveal"><span class="pstep__n">02</span><h3>Проект и смета</h3><p>Готовим документацию, 3D-визуализацию и детальную смету с фиксированной ценой.</p></div>
+      <div class="pstep reveal"><span class="pstep__n">03</span><h3>Договор</h3><p>Заключаем договор с графиком работ, этапами оплаты и гарантией.</p></div>
+      <div class="pstep reveal"><span class="pstep__n">04</span><h3>Строительство</h3><p>Ведём работы по графику под контролем технадзора с отчётами о ходе.</p></div>
+      <div class="pstep reveal"><span class="pstep__n">05</span><h3>Сдача и гарантия</h3><p>Передаём объект по акту, даём документацию и гарантию до 5 лет.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="shead reveal">
+      <span class="eyebrow">Портфолио</span>
+      <h2>Реализованные проекты</h2>
+      <p>Часть объектов, которые мы спроектировали и построили за последние годы.</p>
+    </div>
+    <div class="pfilter reveal">
+      <button class="fbtn active" data-f="all">Все проекты</button>
+      <button class="fbtn" data-f="res">Жилые дома</button>
+      <button class="fbtn" data-f="com">Коммерческие</button>
+      <button class="fbtn" data-f="ren">Ремонт и отделка</button>
+    </div>
+    <div class="pgrid" id="pgrid">
+      <article class="pcard reveal" data-c="res"><div class="pcard__media pm1"><span class="pcard__tag">Жилые дома</span></div><div class="pcard__body"><h3>Загородный дом, 240 м²</h3><p>Кирпичный дом в 2 этажа с террасой и гаражом.</p><div class="pcard__meta"><span>Срок · <b>7 мес</b></span><span>Год · <b>2024</b></span></div></div></article>
+      <article class="pcard reveal" data-c="com"><div class="pcard__media pm2"><span class="pcard__tag">Коммерческие</span></div><div class="pcard__body"><h3>Бизнес-центр класса А</h3><p>5-этажное офисное здание 3 800 м² с паркингом.</p><div class="pcard__meta"><span>Срок · <b>14 мес</b></span><span>Год · <b>2023</b></span></div></div></article>
+      <article class="pcard reveal" data-c="ren"><div class="pcard__media pm3"><span class="pcard__tag">Ремонт</span></div><div class="pcard__body"><h3>Реконструкция квартиры</h3><p>Полная перепланировка и капремонт квартиры 130 м².</p><div class="pcard__meta"><span>Срок · <b>3 мес</b></span><span>Год · <b>2024</b></span></div></div></article>
+      <article class="pcard reveal" data-c="res"><div class="pcard__media pm4"><span class="pcard__tag">Жилые дома</span></div><div class="pcard__body"><h3>Комплекс таунхаусов</h3><p>8 блок-секций по 160 м² с благоустройством.</p><div class="pcard__meta"><span>Срок · <b>11 мес</b></span><span>Год · <b>2023</b></span></div></div></article>
+      <article class="pcard reveal" data-c="com"><div class="pcard__media pm5"><span class="pcard__tag">Коммерческие</span></div><div class="pcard__body"><h3>Складской комплекс</h3><p>Логистический склад 6 000 м² с офисным блоком.</p><div class="pcard__meta"><span>Срок · <b>9 мес</b></span><span>Год · <b>2022</b></span></div></div></article>
+      <article class="pcard reveal" data-c="ren"><div class="pcard__media pm6"><span class="pcard__tag">Ремонт</span></div><div class="pcard__body"><h3>Отделка офиса</h3><p>Open-space офис 450 м² под ключ за 6 недель.</p><div class="pcard__meta"><span>Срок · <b>1.5 мес</b></span><span>Год · <b>2024</b></span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="shead reveal">
+      <span class="eyebrow">Отзывы</span>
+      <h2>Что говорят наши клиенты</h2>
+      <p>Нам доверяют строительство своих домов и объектов.</p>
+    </div>
+  </div>
+  <div class="rview">
+    <div class="rtrack" id="rtrack">
+      <article class="rcard reveal"><div class="rcard__top"><div class="rstars">★★★★★</div><div class="rquote">"</div></div><p>Строили дом под ключ — уложились в срок и в смету день в день. Отдельное спасибо за честность: ни одной скрытой доплаты за все 7 месяцев.</p><div class="rauthor"><span class="ravatar">АК</span><div><strong>Александр Ким</strong><span>Загородный дом, 240 м²</span></div></div></article>
+      <article class="rcard reveal"><div class="rcard__top"><div class="rstars">★★★★★</div><div class="rquote">"</div></div><p>Реконструировали офис для нашей компании. Понравился технадзор — все этапы фиксировали фото и присылали отчёты. Результат превзошёл ожидания.</p><div class="rauthor"><span class="ravatar">ДН</span><div><strong>Дана Нурланова</strong><span>Ремонт офиса, 450 м²</span></div></div></article>
+      <article class="rcard reveal"><div class="rcard__top"><div class="rstars">★★★★★</div><div class="rquote">"</div></div><p>Заказывали проект и строительство складского комплекса. Профессиональная команда, быстро согласовали все технические вопросы с нашими требованиями.</p><div class="rauthor"><span class="ravatar">МТ</span><div><strong>Марат Турсунов</strong><span>Складской комплекс</span></div></div></article>
+      <article class="rcard reveal"><div class="rcard__top"><div class="rstars">★★★★☆</div><div class="rquote">"</div></div><p>Хорошее качество кладки и отделки, ремонт квартиры сделали аккуратно. Был небольшой сдвиг по срокам из-за поставки материалов, но нас предупредили заранее.</p><div class="rauthor"><span class="ravatar">ЕС</span><div><strong>Елена Соколова</strong><span>Реконструкция квартиры</span></div></div></article>
+      <article class="rcard reveal"><div class="rcard__top"><div class="rstars">★★★★★</div><div class="rquote">"</div></div><p>Строили таунхаусы под продажу — важна была скорость и качество одновременно. Команда справилась на отлично, будем работать и дальше.</p><div class="rauthor"><span class="ravatar">РБ</span><div><strong>Руслан Байтасов</strong><span>Комплекс таунхаусов</span></div></div></article>
+    </div>
+  </div>
+  <div class="rctrl">
+    <button class="sbtn" id="rprev" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button class="sbtn" id="rnext" aria-label="Вперёд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container faq__in">
+    <div class="shead shead--left reveal">
+      <span class="eyebrow">Вопросы и ответы</span>
+      <h2>Часто задаваемые вопросы</h2>
+      <p>Не нашли ответ? Свяжитесь с нами — проконсультируем бесплатно.</p>
+      <a href="#contact" class="btn btn--accent">Задать вопрос</a>
+    </div>
+    <div class="reveal">
+      <div class="fitem open"><button class="fitem__q"><span>Сколько стоит строительство дома под ключ?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M12 5v14" stroke-linecap="round"/></svg></span></button><div class="fitem__a"><p>Стоимость зависит от площади, материалов и сложности проекта. После консультации и выезда на участок мы готовим детальную смету с фиксированной итоговой суммой, которая прописывается в договоре.</p></div></div>
+      <div class="fitem"><button class="fitem__q"><span>Какие гарантии вы предоставляете?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M12 5v14" stroke-linecap="round"/></svg></span></button><div class="fitem__a"><p>На все виды строительных и отделочных работ действует гарантия от 2 до 5 лет в зависимости от типа работ. Условия фиксируются в договоре.</p></div></div>
+      <div class="fitem"><button class="fitem__q"><span>Работаете ли вы за пределами города?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M12 5v14" stroke-linecap="round"/></svg></span></button><div class="fitem__a"><p>Да, мы реализуем проекты по всему региону. Стоимость и сроки выезда бригад на удалённые объекты обсуждаются индивидуально.</p></div></div>
+      <div class="fitem"><button class="fitem__q"><span>Как формируется смета?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M12 5v14" stroke-linecap="round"/></svg></span></button><div class="fitem__a"><p>Смета составляется на основе проекта и выбранных материалов, с постатейной разбивкой по видам работ. Вы видите полную структуру затрат ещё до подписания договора.</p></div></div>
+      <div class="fitem"><button class="fitem__q"><span>Возможна ли рассрочка оплаты?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M12 5v14" stroke-linecap="round"/></svg></span></button><div class="fitem__a"><p>Да, оплата разбивается на этапы согласно графику: аванс, промежуточные платежи по факту выполнения этапов и финальный расчёт при сдаче объекта.</p></div></div>
+      <div class="fitem"><button class="fitem__q"><span>Сколько времени занимает строительство дома?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M12 5v14" stroke-linecap="round"/></svg></span></button><div class="fitem__a"><p>В среднем от 5 до 9 месяцев для дома 150–300 м², в зависимости от сложности проекта и сезона. Точный срок фиксируется в графике работ.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <div class="cta__in reveal">
+      <div class="cta__t">
+        <h2>Готовы обсудить свой проект?</h2>
+        <p>Оставьте заявку — перезвоним в течение 15 минут и рассчитаем стоимость.</p>
+      </div>
+      <div class="cta__act">
+        <a href="tel:+77001234567" class="btn btn--ghost btn--lg">+7 (700) 123-45-67</a>
+        <a href="#contact" class="btn btn--accent btn--lg">Оставить заявку</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container contact__in">
+    <div class="contact__i reveal">
+      <span class="eyebrow">Контакты</span>
+      <h2>Свяжитесь с нами удобным способом</h2>
+      <p>Ответим на вопросы, выедем на замер и подготовим предварительный расчёт бесплатно.</p>
+      <ul class="clist">
+        <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1.1.5 1.1 1.1V21c0 .6-.5 1.1-1.1 1.1C11.1 22.1 1.9 12.9 1.9 1.5 1.9.9 2.4.4 3 .4h4.4c.6 0 1.1.5 1.1 1.1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z" fill="currentColor"/></svg></span><div><strong>Телефон</strong><a href="tel:+77001234567">+7 (700) 123-45-67</a></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6l9 7 9-7M4 5h16a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1z" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><strong>Email</strong><a href="mailto:info@atlant-stroy.kz">info@atlant-stroy.kz</a></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.4"/></svg></span><div><strong>Офис</strong><span>г. Алматы, ул. Строителей, 24</span></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2" stroke-linecap="round"/></svg></span><div><strong>Часы работы</strong><span>Пн–Сб: 09:00–19:00</span></div></li>
+      </ul>
+      <div class="csocial">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12a8 8 0 11-14.7-4.4L4 21l4.6-1.2A8 8 0 0120 12z" stroke-linejoin="round"/></svg></a>
+        <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 4L3 11.5l6 2M21 4l-4 16-8-6.5M21 4L9 13.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+    <form class="cform reveal" id="cform" novalidate>
+      <h3>Оставить заявку</h3>
+      <div class="frow">
+        <div class="field"><label for="name">Имя</label><input type="text" id="name" name="name" placeholder="Как к вам обращаться" required></div>
+        <div class="field"><label for="phone">Телефон</label><input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required></div>
+      </div>
+      <div class="field"><label for="service">Услуга</label>
+        <select id="service" name="service">
+          <option value="">Выберите услугу</option>
+          <option>Жилищное строительство</option>
+          <option>Коммерческие объекты</option>
+          <option>Проектирование</option>
+          <option>Ремонт и отделка</option>
+          <option>Другое</option>
+        </select>
+      </div>
+      <div class="field"><label for="msg">Сообщение</label><textarea id="msg" name="msg" placeholder="Кратко опишите задачу"></textarea></div>
+      <label class="check"><input type="checkbox" id="consent" required><span>Согласен(-на) на обработку персональных данных</span></label>
+      <button type="submit" class="btn btn--accent btn--lg btn--block">Отправить заявку</button>
+      <p class="fsuccess" id="fsuccess" role="status">Спасибо! Заявка отправлена — мы свяжемся с вами в ближайшее время.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__in">
+      <div class="footer__brand">
+        <a href="#hero" class="logo">
+          <svg viewBox="0 0 40 40" width="36" height="36" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#ff9d2e"/><path d="M10 29V15l5-4 5 4v14M25 29V19l5-4v14" stroke="#1a1205" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="logo__txt">АТЛАНТ<em>СТРОЙ</em></span>
+        </a>
+        <p>Строительная компания полного цикла: проектирование, строительство и ремонт жилых и коммерческих объектов под ключ.</p>
+      </div>
+      <div class="footer__col"><h4>Услуги</h4><ul><li><a href="#services">Жилищное строительство</a></li><li><a href="#services">Коммерческие объекты</a></li><li><a href="#services">Проектирование</a></li><li><a href="#services">Ремонт и отделка</a></li></ul></div>
+      <div class="footer__col"><h4>Компания</h4><ul><li><a href="#about">О нас</a></li><li><a href="#projects">Проекты</a></li><li><a href="#reviews">Отзывы</a></li><li><a href="#faq">Вопросы</a></li></ul></div>
+      <div class="footer__col"><h4>Контакты</h4><ul><li><a href="tel:+77001234567">+7 (700) 123-45-67</a></li><li><a href="mailto:info@atlant-stroy.kz">info@atlant-stroy.kz</a></li><li>г. Алматы, ул. Строителей, 24</li></ul></div>
+    </div>
+    <div class="footer__bot">
+      <div class="footer__bot-in">
+        <span>© <span id="year"></span> АТЛАНТ СТРОЙ. Все права защищены.</span>
+        <div class="footer__legal"><a href="#">Политика конфиденциальности</a><a href="#">Договор оферты</a></div>
       </div>
     </div>
   </div>
 </footer>
 
-<button class="to-top" id="toTop" aria-label="Наверх">
-  <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-</button>
+<button class="totop" id="totop" aria-label="Наверх"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 
-<script src="js/main.js"></script>
+<script>
+(function(){
+  document.getElementById('year').textContent=new Date().getFullYear();
+  var header=document.getElementById('header'),progress=document.getElementById('progress'),totop=document.getElementById('totop');
+  function onScroll(){
+    var y=window.scrollY;
+    header.classList.toggle('scrolled',y>10);
+    totop.classList.toggle('show',y>500);
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    progress.style.width=h>0?(y/h*100)+'%':'0%';
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  totop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+
+  var burger=document.getElementById('burger'),nav=document.getElementById('nav');
+  burger.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded',String(open));
+    document.body.style.overflow=open?'hidden':'';
+  });
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){
+    nav.classList.remove('open');burger.setAttribute('aria-expanded','false');document.body.style.overflow='';
+  })});
+
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  function run(el){var to=+el.dataset.to,start=performance.now();
+    function step(now){var p=Math.min((now-start)/1300,1),e=1-Math.pow(1-p,3);el.textContent=Math.round(e*to);if(p<1)requestAnimationFrame(step)}
+    requestAnimationFrame(step);}
+  var co=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){run(e.target);co.unobserve(e.target)}})},{threshold:.5});
+  document.querySelectorAll('.counter').forEach(function(el){co.observe(el)});
+
+  var fbtns=document.querySelectorAll('.fbtn'),cards=document.querySelectorAll('.pcard');
+  fbtns.forEach(function(b){b.addEventListener('click',function(){
+    fbtns.forEach(function(x){x.classList.remove('active')});b.classList.add('active');
+    var f=b.dataset.f;
+    cards.forEach(function(c){c.classList.toggle('hide',!(f==='all'||c.dataset.c===f))});
+  })});
+
+  var track=document.getElementById('rtrack');
+  function slide(d){var c=track.querySelector('.rcard');track.scrollBy({left:(c.offsetWidth+22)*d,behavior:'smooth'})}
+  document.getElementById('rprev').addEventListener('click',function(){slide(-1)});
+  document.getElementById('rnext').addEventListener('click',function(){slide(1)});
+
+  document.querySelectorAll('.fitem__q').forEach(function(q){q.addEventListener('click',function(){
+    var it=q.closest('.fitem'),was=it.classList.contains('open');
+    document.querySelectorAll('.fitem').forEach(function(x){x.classList.remove('open')});
+    if(!was)it.classList.add('open');
+  })});
+
+  var form=document.getElementById('cform'),ok=document.getElementById('fsuccess');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){form.reportValidity();return}
+    ok.classList.add('show');form.reset();
+    setTimeout(function(){ok.classList.remove('show')},6000);
+  });
+})();
+</script>
 </body>
 </html>
